@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds8urk8owwdod"]
+
+[ext_resource type="PackedScene" uid="uid://banlq843qtex8" path="res://scenes/hand/hand.tscn" id="1_3acub"]
+
+[node name="Del" type="Node2D"]
+
+[node name="Hand" parent="." instance=ExtResource("1_3acub")]
+position = Vector2(900, 2200)
+
+[node name="AddCardBtn" type="Button" parent="."]
+offset_left = 132.0
+offset_top = 80.0
+offset_right = 536.0
+offset_bottom = 295.0
+theme_override_font_sizes/font_size = 32
+text = "Add card"
+
+[node name="DelCardBtn" type="Button" parent="."]
+offset_left = 588.0
+offset_top = 80.0
+offset_right = 992.0
+offset_bottom = 295.0
+theme_override_font_sizes/font_size = 32
+text = "Del card"
+
+[connection signal="pressed" from="AddCardBtn" to="Hand" method="_on_button_pressed"]
+[connection signal="pressed" from="DelCardBtn" to="Hand" method="_on_del_card_btn_pressed"]

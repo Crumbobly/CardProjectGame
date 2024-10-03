@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://banlq843qtex8"]
+
+[ext_resource type="Script" path="res://scenes/hand/hand.gd" id="1_343y3"]
+[ext_resource type="Script" path="res://scenes/hand/hand_circle.gd" id="2_d8ks1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pojux"]
+radius = 1265.0
+
+[node name="Hand" type="Node2D"]
+script = ExtResource("1_343y3")
+
+[node name="Cards" type="Node2D" parent="."]
+
+[node name="HandCircle" type="StaticBody2D" parent="."]
+script = ExtResource("2_d8ks1")
+
+[node name="CollisionCircle" type="CollisionShape2D" parent="HandCircle"]
+shape = SubResource("CircleShape2D_pojux")
