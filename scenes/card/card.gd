@@ -1,4 +1,5 @@
-class_name Card extends Node2D
+class_name Card
+extends Node2D
 
 @export var card_name: String = "card_name"
 @export var _angle: float = 0.0
