@@ -26,6 +26,7 @@ func recalculate_cards_positions():
 	for i in range(len(coords)):
 		var card = card_collection[i]
 		var card_pos = hand_circle.get_card_position(coords[i])
+
 		card.set_position(Vector2(card_pos[0], card_pos[1]))
 		card.set_rotation_degrees(card_pos[2])
 		card.height_offset = hand_circle.circle.shape.radius + card_pos[1]

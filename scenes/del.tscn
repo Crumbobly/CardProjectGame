@@ -5,7 +5,7 @@
 [node name="Del" type="Node2D"]
 
 [node name="Hand" parent="." instance=ExtResource("1_3acub")]
-position = Vector2(900, 2200)
+position = Vector2(871, 2200)
 
 [node name="AddCardBtn" type="Button" parent="."]
 offset_left = 132.0

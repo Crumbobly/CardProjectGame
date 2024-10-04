@@ -7,6 +7,7 @@ class_name Card extends Node2D
 
 @onready var CardNameLabel: Label = $CardNameLabel
 @onready var CardFrame: Sprite2D = $CardFrame
+@onready var CardArea: Area2D = $CardArea
 
 signal mouse_entered(card: Card)
 signal mouse_exited(card: Card)
