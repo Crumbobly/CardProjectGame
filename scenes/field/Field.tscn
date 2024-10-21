@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/field/field.gd" id="1_nd15h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u6kqj"]
-size = Vector3(20, 0.001, 2)
+size = Vector3(20, 0.001, 1.20972)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w2v67"]
 
@@ -14,7 +14,7 @@ script = ExtResource("1_nd15h")
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.00109863, 4.80229e-11)
 shape = SubResource("BoxShape3D_u6kqj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -23,4 +23,3 @@ mesh = SubResource("PlaneMesh_w2v67")
 skeleton = NodePath("../Area3D")
 
 [connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
-[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

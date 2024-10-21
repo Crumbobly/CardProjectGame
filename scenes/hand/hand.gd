@@ -90,6 +90,11 @@ func recalculate_all_card_position(coords):
 	
 func add_card(new_card3d: Card3D):
 	super.add_card(new_card3d)
+	
+	randomize()
+	new_card3d.card_id = generate_id()
+	new_card3d.set_card_name(str(new_card3d.card_id))
+	
 	new_card3d.dragging.connect(dragged_card)
 	new_card3d.dropped.connect(dropped_card)
 
@@ -104,6 +109,10 @@ func card_selected(card: Card3D):
 	# При перетаскивании карты она selected пока не будет отпущена игроком. Значит мы не можем сделать новой select
 	if selected_card and selected_card.is_drag:
 		return
+		
+	selected_card_z = card.position.z  
+	card.position.z = 0.1  # Выносим карту на передний план
+	selected_card = card  # переопределяем selected_card
 	super.card_selected(card)
 
 	var selected_card_index = card_collection.find(selected_card)
@@ -115,6 +124,9 @@ func card_unselected(card: Card3D):
 	# При перетаскивании карты она selected пока не будет отпущена игроком. Значит мы не можем сделать unselect
 	if selected_card and selected_card.is_drag:
 		return
+		
+	card.position.z = selected_card_z  # Возвращаем карту на своё место в руке (по оси Z)
+	selected_card_z = 0 
 	super.card_unselected(card)
 
 

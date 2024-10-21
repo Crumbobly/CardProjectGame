@@ -75,27 +75,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.999)
 
 [node name="Field" parent="Node3D" instance=ExtResource("6_7xakm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.3554, 0)
-card_size = 0.7
 
 [node name="Field2" parent="Node3D" instance=ExtResource("6_7xakm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.97466, 0)
-card_size = 0.7
 
 [node name="Field3" parent="Node3D" instance=ExtResource("6_7xakm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.59531, 0)
-card_size = 0.7
 
 [node name="Field4" parent="Node3D" instance=ExtResource("6_7xakm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.22562, 0)
-card_size = 0.7
 
 [node name="Field5" parent="Node3D" instance=ExtResource("6_7xakm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.79416, 0)
-card_size = 0.7
 
 [node name="Field6" parent="Node3D" instance=ExtResource("6_7xakm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38012, 0)
-card_size = 0.7
 
 [connection signal="pressed" from="2D/SubViewportContainer/SubViewport/BoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="2D/SubViewportContainer/SubViewport/BoxContainer/Button2" to="." method="_on_button_2_pressed"]

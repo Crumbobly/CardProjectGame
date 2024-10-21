@@ -10,7 +10,8 @@ var height_offset: float = 0.0 # велечина на которую нужно
 var is_drag = false  # перетаскивается ли карта
 var angle_in_hand = Vector3(0, 0, 0)  # угол карты в руке в момент её добавления. Нужен чтобы мы смогли вернуть карту в исходную позицию.
 var pos_in_hand_y: float   # координаты карты в руке в момент её добавления. Нужены чтобы мы смогли вернуть карту в исходную позицию.
-var over_field: Field
+var over_field: Field = null
+var over_field_coord_x: float = INF
 const hightlight_height = 1.5  # высота подьёма выбранной карты (можно сделать глобальной)
 
 var my_tween_list: MyTweenList = MyTweenList.new() # Список активных твинов. Нужен для оставноки всех активных анимаций карты.
@@ -33,15 +34,19 @@ func set_card_name(name) -> void:
 
 
 # Возвращает объект Field если карта над ним находиться, иначе null
-func get_card_overfield() -> Field:
+func set_card_overfield() -> void:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		var collider_parent = collider.get_parent_node_3d()
 		
 		if collider_parent is Field:
-			return collider_parent
+			over_field = collider_parent
+			var collision_point = raycast.get_collision_point()
+			over_field_coord_x = over_field.to_local(collision_point).x
+			return 
 			
-	return null
+	over_field = null
+	over_field_coord_x = INF
 
 
 # Прерывает все анимации, делает карту hightlight.
@@ -59,7 +64,7 @@ func stop_all_tween_animations():
 # Функция "следования за мышкой".
 # Принимает на вход координаты мышки и устанавливает меняет позицию карты, перезапысывает overfield
 func follow(pos):  
-	over_field = get_card_overfield()
+	set_card_overfield()
 	self.global_position.x = pos[0]
 	self.global_position.y = pos[1]
 

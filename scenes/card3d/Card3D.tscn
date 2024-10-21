@@ -40,8 +40,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00652456, -0.00234416)
 shape = SubResource("BoxShape3D_7o6e7")
 
 [node name="CardNameLbl" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616206, 1.28157, 0.00219674)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17321, 0.726537, 0.0820202)
+modulate = Color(1, 0, 0, 1)
 text = "text"
+font_size = 96
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -1)
