@@ -1,0 +1,8 @@
+res://scenes/game/Game.tscn
+res://scenes/field/Field.tscn
+res://scenes/card3d/Card3D.tscn
+res://scenes/card_layout/line_layout_logic.gd
+res://scenes/field/field.gd
+res://scenes/hand/hand.gd
+res://scenes/card_layout/card_layout.gd
+res://scenes/card3d/card_3d.gd

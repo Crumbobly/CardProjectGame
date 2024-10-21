@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuas81b84wajc"]
+
+[ext_resource type="Script" path="res://scenes/card_preview/card_preview.gd" id="1_x2k5c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjo12"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77gwv"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o401j"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g77hm"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="CardPreview" type="Node3D"]
+script = ExtResource("1_x2k5c")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 1888.0
+offset_right = 2400.0
+offset_bottom = 512.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(32, 32)
+render_target_update_mode = 4
+
+[node name="Button" type="Button" parent="SubViewportContainer/SubViewport"]
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_mjo12")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77gwv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o401j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g77hm")
+text = "×"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="button_up" from="SubViewportContainer/SubViewport/Button" to="." method="_on_button_button_up"]

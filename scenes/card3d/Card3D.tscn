@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bde3kvvn2c8yn"]
+
+[ext_resource type="Script" path="res://scenes/card3d/card_3d.gd" id="1_jno23"]
+[ext_resource type="Texture2D" uid="uid://dqskvmwkk5d1c" path="res://assets/images/card/card_frame_back.jpg" id="1_o5j6f"]
+[ext_resource type="Texture2D" uid="uid://cquawarjqw2lw" path="res://assets/images/card/card_frame.png" id="2_0tqki"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xkd2x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rne20"]
+albedo_texture = ExtResource("1_o5j6f")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_55phr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aj02o"]
+albedo_texture = ExtResource("2_0tqki")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7o6e7"]
+size = Vector3(2, 2.9751, 0.0461484)
+
+[node name="Card3d" type="Node3D"]
+script = ExtResource("1_jno23")
+
+[node name="CardMesh" type="Node3D" parent="."]
+transform = Transform3D(0.998122, 0, 0, 0, 0.998122, 0, 0, 0, 1.6784, 0, 0, 0)
+
+[node name="BackMesh" type="MeshInstance3D" parent="CardMesh"]
+transform = Transform3D(-1, 5.66574e-08, -5.84234e-15, 0, -2.83287e-08, -1.52886, -8.74227e-08, -0.648085, 6.68286e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_xkd2x")
+surface_material_override/0 = SubResource("StandardMaterial3D_rne20")
+
+[node name="FrontMesh" type="MeshInstance3D" parent="CardMesh"]
+transform = Transform3D(1.005, 0, 0, 0, -4.39299e-08, -1.5, 0, 1.005, -6.55671e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_55phr")
+surface_material_override/0 = SubResource("StandardMaterial3D_aj02o")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="BaseCollision" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00652456, -0.00234416)
+shape = SubResource("BoxShape3D_7o6e7")
+
+[node name="CardNameLbl" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616206, 1.28157, 0.00219674)
+text = "text"
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1)
+collision_mask = 2
+collide_with_areas = true
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_static_body_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_static_body_3d_mouse_exited"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cibohmqty0itj"]
+
+[ext_resource type="Script" path="res://scenes/hand/hand.gd" id="1_pc1ic"]
+
+[node name="Hand" type="Node3D"]
+script = ExtResource("1_pc1ic")
